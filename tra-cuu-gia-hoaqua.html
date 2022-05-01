@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        h2{
+            margin-bottom: -18px;
+        }
+        button:hover{
+            background-color: dimgray;
+        }
+    </style>
+</head>
+<body>
+    <h2>Giá hoa quả</h2>
+    <p>(Bạn cần nhập đúng tên loại trái cây)</p>
+    <input type="text" id="import">
+    <button id="checkgia" onclick="check()"><b>Xem Giá</b></button>
+    <p id="result"></p>
+</body>
+<script>
+    function check(){
+        let fruit = document.getElementById('import').value
+        switch(fruit){
+        case "Ổi": {
+            document.getElementById('result').innerHTML = "20.000 VND/1KG"
+        }
+        break
+        case "Dưa Hấu": {
+            document.getElementById('result').innerHTML = "20.000 VND/1KG"
+        }
+        break
+        case "Táo": {
+            document.getElementById('result').innerHTML = "30.000 VND/1KG"
+        }
+        break
+        case "Xoài": {
+            document.getElementById('result').innerHTML = "30.000 VND/1KG"
+        }
+        break
+        case "Cam": {
+            document.getElementById('result').innerHTML = "40.000 VND/1KG"
+        }
+        break
+        case "Chôm Chôm": {
+            document.getElementById('result').innerHTML = "55.000 VND/1KG"
+        }
+        break
+        case "Măng Cụt": {
+            document.getElementById('result').innerHTML = "70.000 VND/1KG"
+        }
+        break
+        default:{
+            document.getElementById('result').innerHTML = "Bạn nhập sai"
+        }
+    }
+    }
+    
+</script>
+</html>
