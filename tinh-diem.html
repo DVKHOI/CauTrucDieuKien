@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="2"><h1>Tính điểm ĐH khối D</h1></td>
+      </tr>
+      <tr>
+        <td>Môn Toán</td>
+        <td><input type="text" id="toan" /></td>
+      </tr>
+      <tr>
+        <td>Môn Văn</td>
+        <td><input type="text" id="van" /></td>
+      </tr>
+      <tr>
+        <td>Môn Anh</td>
+        <td><input type="text" id="anh" /></td>
+      </tr>
+      <tr>
+        <td>Khu vục</td>
+        <td>
+          <select id="khuvuc">
+            <option value="kv1">KV1</option>
+            <option value="kv2_nt">KV2-NT</option>
+            <option value="kv2">KV2</option>
+            <option value="kv3">KV3</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button id="btnTinhDiem" onclick="TinhDiem()">Tính điểm</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="color: red"><p id="result"></p></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    function TinhDiem() {
+      let diemToan = parseFloat(document.getElementById("toan").value);
+      let diemVan = parseFloat(document.getElementById("van").value);
+      let diemAnh = parseFloat(document.getElementById("anh").value);
+      let khuvuc = document.getElementById("khuvuc").value;
+      let ketqua = diemToan + diemVan + diemAnh;
+      //   switch (khuvuc) {
+      //     case "kv1":
+      //       {
+      //         ketqua += 0.75;
+      //         document.getElementById("result").innerHTML =
+      //           "Tổng điểm thi ĐH khối D của bạn là: " + ketqua;
+      //       }
+      //       break;
+      //     case "kv2_nt":
+      //       {
+      //         ketqua += 0.5;
+      //         document.getElementById("result").innerHTML =
+      //           "Tổng điểm thi ĐH khối D của bạn là: " + ketqua;
+      //       }
+      //       break;
+      //     case "kv2":
+      //       {
+      //         ketqua += 0.25;
+      //         document.getElementById("result").innerHTML =
+      //           "Tổng điểm thi ĐH khối D của bạn là: " + ketqua;
+      //       }
+      //       break;
+      //     case "kv3":
+      //       {
+      //         document.getElementById("result").innerHTML =
+      //           "Tổng điểm thi ĐH khối D của bạn là: " + ketqua;
+      //       }
+      //       break;
+      //   }
+    }
+  </script>
+</html>
