@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin-left: 50%;
+        transform: translateX(-30%);
+      }
+    </style>
+  </head>
+  <body>
+    <p>Nhập a. Tính chu vi và diện tích hình vuông</p>
+    <input type="text" id="edge" placeholder="Nhập cạnh của hình vuông" />
+    <button onclick="checkHinhVuong()">Kiểm tra</button>
+    <p id="result1"></p>
+    <span>------------------------------------------</span>
+    <p>Nhập a và b tính a^2 và a^b</p>
+    <input type="text" id="number1" placeholder="Nhập a" />
+    <input type="text" id="number2" placeholder="Nhập b" />
+    <button onclick="checkTwoNumber()">Kiểm tra</button>
+    <p id="result2"></p>
+    <span>------------------------------------------</span>
+    <p>Nhập a và b tính tổng từ a đến b</p>
+
+    <input type="text" id="numbera" placeholder="Nhập a" />
+    <input type="text" id="numberb" placeholder="Nhập b" />
+    <button onclick="tinhTong()">Kiểm tra</button>
+    <p id="result3"></p>
+    <span>------------------------------------------</span>
+    <p>Nhập vào a là năm, in ra thế kỷ.</p>
+
+    <input type="text" id="year" placeholder="Nhập year" />
+    <button onclick="inTheKy()">Kiểm tra</button>
+    <p id="result4"></p>
+    <span>------------------------------------------</span>
+
+    <p>Nhập vào a, b, c, kiểm tra xem a, b, c có phải là 3 cạnh của</p>
+    <input type="text" id="canh_a" placeholder="Nhập cạnh a" />
+    <input type="text" id="canh_b" placeholder="Nhập cạnh b" />
+    <input type="text" id="canh_c" placeholder="Nhập cạnh c" />
+    <button onclick="checkTamGiac()">Kiểm tra</button>
+    <p id="result5"></p>
+  </body>
+  <script>
+    //   Nhập a. Tính chu vi và diện tích hình vuông
+    function checkHinhVuong() {
+      let edge = document.getElementById("edge").value;
+      let per = edge * 4;
+      let acr = Math.pow(edge, 2);
+      document.getElementById("result1").innerHTML =
+        "Chu vi hình vuông là: " +
+        per +
+        "</br>" +
+        "Diện tích hình vuông là: " +
+        acr;
+    }
+    // Nhập a và b tính tổng từ a đến b
+    function checkTwoNumber() {
+      let number1 = document.getElementById("number1").value;
+      let number2 = document.getElementById("number2").value;
+      document.getElementById("result2").innerHTML =
+        "a ^ 2 = " +
+        Math.pow(number1, 2) +
+        " và a ^ b là " +
+        Math.pow(number1, number2);
+    }
+    // Nhập a và b tính tổng từ a đến b
+    function tinhTong() {
+      let number_a = parseInt(document.getElementById("numbera").value);
+      let number_b = parseInt(document.getElementById("numberb").value);
+      let tong = 0;
+      if (number_a == number_b) {
+        document.getElementById("result3").innerHTML =
+          "Không được phép nhập 2 số giống nhau";
+        document.getElementById("numbera").innerHTML = "";
+        document.getElementById("numberb").innerHTML = "";
+      } else if (number_a < number_b) {
+        for (let i = number_a; i <= number_b; i++) {
+          tong += i;
+        }
+      } else {
+        for (let i = number_b; i <= number_a; i++) {
+          tong += i;
+        }
+      }
+      document.getElementById("result3").innerHTML = tong;
+    }
+    // Nhập vào a là năm, in ra thế kỷ
+    function inTheKy() {
+      let year = document.getElementById("year").value;
+      let theKy = parseInt(year / 100) + 1;
+      document.getElementById("result4").innerHTML =
+        year + " là thế kỷ thứ " + theKy;
+    }
+    // Nhập vào a, b, c, kiểm tra xem a, b, c có phải là 3 cạnh của tam giác
+    function checkTamGiac() {
+      let a = parseInt(document.getElementById("canh_a").value);
+      let b = parseInt(document.getElementById("canh_b").value);
+      let c = parseInt(document.getElementById("canh_c").value);
+      if (a < b + c && b < a + c && c < a + b) {
+        if (
+          a * a == b * b + c * c ||
+          b * b == a * a + c * c ||
+          c * c == a * a + b * b
+        ) {
+          document.getElementById("result5").innerHTML =
+            "Đây là tam giác vuông";
+        } else if (a == b && b == c) {
+          document.getElementById("result5").innerHTML = "Đây là tam giác đều";
+        } else if (a == b || a == c || b == c) {
+          document.getElementById("result5").innerHTML = "Đây là tam giác cân";
+        } else {
+          document.getElementById("result5").innerHTML = "Đây là tam giác nhọn";
+        }
+      } else {
+        document.getElementById("result5").innerHTML =
+          "Đây là không phải là 3 cạnh của tam giác";
+      }
+    }
+  </script>
+</html>

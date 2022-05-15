@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Phương trình bậc 2</h3>
+    <input type="text" id="number1" />
+    <input type="text" id="number2" />
+    <input type="text" id="number3" />
+    <button onclick="giaiPhuongTrinh()">Giải phương trình bậc 2</button>
+    <p id="result"></p>
+  </body>
+  <script>
+    function giaiPhuongTrinh() {
+      let a = document.getElementById("number1").value;
+      let b = document.getElementById("number2").value;
+      let c = document.getElementById("number3").value;
+      if (a == 0) {
+        if (b == 0) {
+          if (c == 0) {
+            document.getElementById("result").innerHTML =
+              "Phương trình vô số nghiệm";
+          } else {
+            document.getElementById("result").innerHTML =
+              "Phương trình vô nghiệm";
+          }
+        } else {
+          document.getElementById("result").innerHTML =
+            "Phương trình vô có nghiệm duy nhất " + -c / b;
+        }
+      } else {
+        let delta = Math.pow(b, b) - 4 * (a * c);
+        if (delta > 0) {
+          let x1 = -b + Math.sqrt(delta) / (2 * a);
+          let x2 = -b - Math.sqrt(delta) / (2 * a);
+          document.getElementById("result").innerHTML =
+            "Phương trình có 2 nghiệm: " +
+            "</br>" +
+            "x1 = " +
+            x1 +
+            " </br>" +
+            "x2 = " +
+            x2;
+        } else if (delta == 0) {
+          let x = -b / (2 * a);
+          document.getElementById("result").innerHTML =
+            "Phương trình có nghiệm kép: " + x;
+        } else {
+          document.getElementById("result").innerHTML =
+            "Phương trình vô nghiệm";
+        }
+      }
+    }
+  </script>
+</html>
